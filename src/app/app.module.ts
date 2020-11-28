@@ -6,8 +6,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MonitoringComponent } from './monitoring/monitoring.component';
 import { AboutComponent } from './about/about.component';
+import { HostsComponent } from './hosts/hosts.component';
+import { ServicesComponent } from './services/services.component';
 
 const appRoutes: Routes = [
+  {path: 'hosts', component: HostsComponent},
+  {path: 'services', component: ServicesComponent},
   {path: 'about', component: AboutComponent},
   { path: '', component: MonitoringComponent }
 ];
@@ -16,7 +20,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MonitoringComponent,
-    AboutComponent
+    AboutComponent,
+    HostsComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
