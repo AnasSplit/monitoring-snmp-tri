@@ -13,6 +13,7 @@ import { HostsComponent } from './hosts/hosts.component';
 import { ServicesComponent } from './services/services.component';
 
 const appRoutes: Routes = [
+  {path: 'monitoring', component: MonitoringComponent},
   {path: 'hosts', component: HostsComponent},
   {path: 'services', component: ServicesComponent},
   {path: 'about', component: AboutComponent},
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
     MonitoringComponent,
     AboutComponent,
     HostsComponent,
-    ServicesComponent
+    ServicesComponent,
   ],
   imports: [
     BrowserModule,
