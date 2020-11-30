@@ -11,36 +11,36 @@ import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms'
 export class ServicesComponent {
   name = 'Angular';
 
-  productForm: FormGroup;
+  hostForm: FormGroup;
 
   constructor(private fb:FormBuilder) {
 
-    this.productForm = this.fb.group({
-      name: '',
-      quantities: this.fb.array([]) ,
+    this.hostForm = this.fb.group({
+      Host: '',
+      Attributes: this.fb.array([]) ,
     });
   }
 
-  quantities() : FormArray {
-    return this.productForm.get("quantities") as FormArray
+  Attributes() : FormArray {
+    return this.hostForm.get("Attributes") as FormArray
   }
 
-  newQuantity(): FormGroup {
+  newIP(): FormGroup {
     return this.fb.group({
-      qty: '',
-      price: '',
+      IP: '',
+      OID: '',
     })
   }
 
-  addQuantity() {
-    this.quantities().push(this.newQuantity());
+  addIP() {
+    this.Attributes().push(this.newIP());
   }
 
-  removeQuantity(i:number) {
-    this.quantities().removeAt(i);
+  removeIP(i:number) {
+    this.Attributes().removeAt(i);
   }
 
   onSubmit() {
-    console.log(this.productForm.value);
+    console.log(this.hostForm.value);
   }
 }

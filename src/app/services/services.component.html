@@ -53,31 +53,31 @@
 
 <div class="container">
 
-  <h1>Angular FormArray Example - ItSolutionStuff.com</h1>
+  <h1>Formulaire d'ajout ou suppressions de Hosts</h1>
 
-  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="hostForm" (ngSubmit)="onSubmit()">
 
     <p>
-      <label for="name">Product Name:</label>
-      <input type="text" id="name" name="name" formControlName="name" class="form-control">
+      <label for="Host">Host:</label>
+      <input type="text" id="Host" name="Host" formControlName="Host" class="form-control">
     </p>
 
-    <table class="table table-bordered" formArrayName="quantities">
+    <table class="table table-bordered" formArrayName="Attributes">
       <tr>
-        <th colspan="2">Add Multiple Quantity:</th>
-        <th width="150px"><button type="button" (click)="addQuantity()" class="btn btn-primary">Add More</button></th>
+        <th colspan="2">Paramètres du monitoring:</th>
+        <th width="150px"><button type="button" (click)="addIP()" class="btn btn-primary">Add More</button></th>
       </tr>
-      <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">
+      <tr *ngFor="let IP of Attributes().controls; let i=index" [formGroupName]="i">
         <td>
-            Quantity :
-            <input type="text" formControlName="qty" class="form-control">
+            IP :
+            <input type="text" formControlName="IP" class="form-control">
         </td>
         <td>
-            Price:
-            <input type="text" formControlName="price" class="form-control">
+            OID :
+            <input type="text" formControlName="OID" class="form-control">
         </td>
         <td>
-            <button (click)="removeQuantity(i)" class="btn btn-danger">Remove</button>
+            <button (click)="removeIP(i)" class="btn btn-danger">Remove</button>
         </td>
       </tr>
     </table>
@@ -87,7 +87,7 @@
   </form>
 
   <br/>
-  {{this.productForm.value | json}}
+  {{this.hostForm.value | json}}
 </div>
 
 <p>services works!</p>
