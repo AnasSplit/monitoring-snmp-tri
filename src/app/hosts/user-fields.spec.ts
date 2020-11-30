@@ -1,7 +1,7 @@
-import { UserFields } from './user-fields';
+import { HostFields } from './user-fields';
 
-describe('UserFields', () => {
+describe('hostFields', () => {
   it('should create an instance', () => {
-    expect(new UserFields()).toBeTruthy();
+    expect(new HostFields()).toBeTruthy();
   });
 });

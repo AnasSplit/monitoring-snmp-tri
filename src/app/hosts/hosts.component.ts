@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { UserFields } from './user-fields';
+import { HostFields } from './user-fields';
 
 
 @Component({
@@ -13,21 +13,21 @@ export class HostsComponent implements OnInit {
 
   constructor() { }
 
-  userList: Array<UserFields> = [];
-  userFormObj: any = new UserFields();
+  hostList: Array<HostFields> = [];
+  userFormObj: any = new HostFields();
 
   ngOnInit() {
-    console.log(this.userList);
+    console.log(this.hostList);
   }
 
   addHost() {
-    var newUserObj = new UserFields(this.userFormObj);
-    this.userList.push(newUserObj);
-    this.userFormObj = new UserFields();
+    var newUserObj = new HostFields(this.userFormObj);
+    this.hostList.push(newUserObj);
+    this.userFormObj = new HostFields();
   }
 
   removeUser(listIndex: number) {
-    this.userList.splice(listIndex, 1);
+    this.hostList.splice(listIndex, 1);
   }
 
 }

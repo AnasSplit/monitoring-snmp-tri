@@ -1,14 +1,14 @@
-export class UserFields {
+export class HostFields {
 
     Host: string = '';
     IP: string = '';
     OID: string = '';
 
-    constructor(userFormObj: any = {}) {
-        if (userFormObj.firstName !== undefined) {
-            this.Host = userFormObj.Host;
-            this.IP = userFormObj.IP;
-            this.OID = userFormObj.OID;
+    constructor(hostFormObj: any = {}) {
+        if (hostFormObj.firstName !== undefined) {
+            this.Host = hostFormObj.Host;
+            this.IP = hostFormObj.IP;
+            this.OID = hostFormObj.OID;
         }
     }
 }
