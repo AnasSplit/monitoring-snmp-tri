@@ -1,13 +1,54 @@
-<p>hosts works!</p>
+<br/>
+<br/>
 
 <div>
 
-<div>
-    <div>
+<div class="container">
+
+  <div class="card">
+    <div class="card-header">
+      Add or remove hosts
     </div>
-    <i class="material-icons" style="margin: auto;">
-    </i>
-    <div>
+    <div class="card-body">
+      <div class="row" >
+        <div class="col">
+          <input type="text" [(ngModel)]="userFormObj.firstName" class="form-control" placeholder="Host">
+        </div>
+        <div class="col">
+          <input type="text" [(ngModel)]="userFormObj.lastName" class="form-control" placeholder="IP">
+        </div>
+        <div class="col">
+          <input type="text" [(ngModel)]="userFormObj.email" class="form-control" placeholder="OID">
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col">
+          <a href="#" class="btn btn-primary" (click)="addHost()">Add Host</a>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <br/>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#id</th>
+        <th scope="col">Host</th>
+        <th scope="col">IP</th>
+        <th scope="col">OID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userObj of userList; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{userObj?.firstName}} {{userObj?.lastName}}</td>
+        <td>{{userObj?.email}}</td>
+        <td><button (click)="removeUser(i)" class="btn btn-danger">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>
-
