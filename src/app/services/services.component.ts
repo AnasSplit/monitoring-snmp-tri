@@ -12,32 +12,38 @@ export class ServicesComponent {
   name = 'Angular';
 
   hostForm: FormGroup;
+  hostForm2: FormGroup;
 
   constructor(private fb:FormBuilder) {
 
     this.hostForm = this.fb.group({
-      Host: '',
-      Attributes: this.fb.array([]) ,
+      Hosts: this.fb.array([]) ,
     });
   }
 
-  Attributes() : FormArray {
-    return this.hostForm.get("Attributes") as FormArray
+  Hosts(): FormArray {
+    return this.hostForm.get("Hosts") as FormArray
   }
 
-  newIP(): FormGroup {
+
+
+  newHost(): FormGroup {
     return this.fb.group({
+      Name: '',
       IP: '',
-      OID: '',
+      Version_SNMP: '',
+      Credentials: '',
+      Marque: '',
+      Métriques: '',
     })
   }
 
-  addIP() {
-    this.Attributes().push(this.newIP());
+  addHost() {
+    this.Hosts().push(this.newHost());
   }
 
   removeIP(i:number) {
-    this.Attributes().removeAt(i);
+    this.Hosts().removeAt(i);
   }
 
   onSubmit() {
