@@ -166,7 +166,10 @@
   {{ this.hostForm.value | json }}
 </div>
 
-<p>services works!</p>
-
-<h2>Appel Api :</h2>
-<p>{{ hello }}</p>
+<div class="container">
+  <h1>Appel Api :</h1>
+  <p>{{ hello }}</p>
+  <button (click)="clearAPI()">Clear</button>
+  <button (click)="fetchAPI()">Récupérer valeur</button>
+  <button (click)="syncAPI()">Synchroniser valeur</button>
+</div>

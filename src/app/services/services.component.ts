@@ -20,23 +20,27 @@ export class ServicesComponent {
   hostForm2: FormGroup;
   hello: Hello | null = null;
 
-  constructor(private fb:FormBuilder, private userRepo: UserRepository) {
+  constructor(private fb: FormBuilder, private userRepo: UserRepository) {
 
     this.hostForm = this.fb.group({
-      Hosts: this.fb.array([]) ,
+      Hosts: this.fb.array([]),
     });
   }
 
   ngOnInit() {
-    this.fetchUser();
+    this.syncAPI();
   }
 
-  async changeUser() {
+  async clearAPI() {
     this.hello = null;
-    this.fetchUser();
   }
 
-  private async fetchUser() {
+  public async fetchAPI() {
+    this.hello = await this.userRepo.random();
+  }
+
+  async syncAPI() {
+    this.hello = null;
     this.hello = await this.userRepo.random();
   }
 
@@ -58,7 +62,7 @@ export class ServicesComponent {
     })
   }
 
-  saveHost(i:number) {
+  saveHost(i: number) {
     this.Hosts();
   }
 
@@ -66,7 +70,7 @@ export class ServicesComponent {
     this.Hosts().push(this.newHost());
   }
 
-  removeIP(i:number) {
+  removeIP(i: number) {
     this.Hosts().removeAt(i);
   }
 
