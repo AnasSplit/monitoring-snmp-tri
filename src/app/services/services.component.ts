@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms'
+import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 
+import { UserRepository } from '../repository/user';
+
+interface Hello {
+  hello: any;
+}
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
-  styleUrls: ['./services.component.css']
+  styleUrls: ['./services.component.css'],
 })
 
 export class ServicesComponent {
@@ -13,12 +18,26 @@ export class ServicesComponent {
 
   hostForm: FormGroup;
   hostForm2: FormGroup;
+  hello: Hello | null = null;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder, private userRepo: UserRepository) {
 
     this.hostForm = this.fb.group({
       Hosts: this.fb.array([]) ,
     });
+  }
+
+  ngOnInit() {
+    this.fetchUser();
+  }
+
+  async changeUser() {
+    this.hello = null;
+    this.fetchUser();
+  }
+
+  private async fetchUser() {
+    this.hello = await this.userRepo.random();
   }
 
   Hosts(): FormArray {
@@ -31,11 +50,16 @@ export class ServicesComponent {
     return this.fb.group({
       Name: '',
       IP: '',
+      Marque: '',
       Version_SNMP: '',
       Credentials: '',
-      Marque: '',
-      Métriques: '',
+      Int: '',
+      CPU: '',
     })
+  }
+
+  saveHost(i:number) {
+    this.Hosts();
   }
 
   addHost() {

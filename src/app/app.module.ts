@@ -12,6 +12,7 @@ import { MonitoringComponent } from './monitoring/monitoring.component';
 import { AboutComponent } from './about/about.component';
 import { HostsComponent } from './hosts/hosts.component';
 import { ServicesComponent } from './services/services.component';
+import { UserRepository } from './repository/user';
 
 const appRoutes: Routes = [
   {path: 'monitoring', component: MonitoringComponent},
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

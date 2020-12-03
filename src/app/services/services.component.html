@@ -83,7 +83,9 @@
 
     <table class="table table-bordered" formArrayName="Hosts">
       <tr>
-        <th colspan="6">Liste des équipements :</th>
+        <th colspan="3">Liste des équipements :</th>
+        <th colspan="2">Paramètres SNMP :</th>
+        <th colspan="2">Éléments à monitorer :</th>
       </tr>
       <tr
         *ngFor="let IP of Hosts().controls; let i = index"
@@ -96,6 +98,10 @@
         <td>
           IP :
           <input type="text" formControlName="IP" class="form-control" />
+        </td>
+        <td>
+          Marque :
+          <input type="text" formControlName="Marque" class="form-control" />
         </td>
         <td for="Version_SNMP">
           Version_SNMP:
@@ -121,27 +127,31 @@
           />
         </td>
         <td>
-          Marque :
-          <input type="text" formControlName="Marque" class="form-control" />
-        </td>
-        <td>
-          Métriques :
-          <select
-            name="Métriques"
-            id="Métriques"
-            type="select"
-            multiple
-            size="2"
-            type="text"
-            formControlName="Métriques"
+          Interfaces :
+          <input
+            type="checkbox"
+            id="Int"
+            name="Int"
+            value="Int"
             class="form-control"
-          >
-            <option value="Int">Int</option>
-            <option value="CPU">CPU</option>
-          </select>
+            formControlName="Int"
+            class="form-control"
+          />
         </td>
         <td>
-          <button class="btn btn-success">Save</button>
+          CPU :
+          <input
+            type="checkbox"
+            id="CPU"
+            name="CPU"
+            value="CPU"
+            class="form-control"
+            formControlName="CPU"
+            class="form-control"
+          />
+        </td>
+        <td>
+          <button (click)="saveHost(i)" class="btn btn-success">Save</button>
         </td>
         <td>
           <button (click)="removeIP(i)" class="btn btn-danger">Remove</button>
@@ -157,3 +167,6 @@
 </div>
 
 <p>services works!</p>
+
+<h2>Appel Api :</h2>
+<p>{{ hello }}</p>
