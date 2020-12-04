@@ -159,7 +159,7 @@
       </tr>
     </table>
 
-    <button class="btn btn-success">Test</button>
+    <button (click)="SNMPreq()" class="btn btn-success">Test SNMP</button>
   </form>
 
   <br />
@@ -172,4 +172,8 @@
   <button (click)="clearAPI()">Clear</button>
   <button (click)="fetchAPI()">Récupérer valeur</button>
   <button (click)="syncAPI()">Synchroniser valeur</button>
+
+  <p>{{ Basedd }}</p>
+  <p>{{ reponsesnmpcpu }}</p>
+  <p>{{ reponsesnmpint }}</p>
 </div>
