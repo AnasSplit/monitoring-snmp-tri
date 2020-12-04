@@ -121,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "monitoring-snmp-tri"
+  "defaultProject": "monitoring-snmp-tri",
+  "cli": {
+    "analytics": "169de6bb-45cd-44c3-9b34-444024b95c23"
+  }
 }

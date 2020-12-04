@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserRepository } from '../repository/user';
+import axios from 'axios'
 
 interface Hello {
   hello: any;
@@ -55,6 +56,10 @@ export class ServicesComponent {
     return this.hostForm.get("Hosts") as FormArray
   }
 
+  postMachine(){
+    axios.post('https://snmp-server.herokuapp.com//addclient/'+this.Name+'/'+this.IP+'/'+this.Marque)
+  }
+
   newHost(): FormGroup {
     return this.fb.group({
       Name: this.Name,
@@ -69,6 +74,10 @@ export class ServicesComponent {
 
   saveHost(i: number) {
     this.Hosts();
+    console.log(this.Name);
+    console.log(this.IP);
+    console.log(this.Marque);
+    //this.postMachine();
   }
 
   addHost() {
