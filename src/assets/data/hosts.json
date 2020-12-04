@@ -1,0 +1,31 @@
+{
+  "Hosts": [
+    {
+      "Name": "centos-snmp",
+      "IP": "35.246.43.236",
+      "Marque": "Linux",
+      "Version_SNMP": "SNMPv2",
+      "Credentials": "209ijvfwer0df92jd",
+      "Int": true,
+      "CPU": null
+    },
+    {
+      "Name": "centos-test",
+      "IP": "35.242.147.56",
+      "Marque": "Linux",
+      "Version_SNMP": "SNMPv3",
+      "Credentials": "209ijvfwer0df92jd",
+      "Int": false,
+      "CPU": true
+    },
+    {
+      "Name": "is25sw01a.local.univ-savoie.fr",
+      "IP": "192.168.140.143",
+      "Marque": "Cisco",
+      "Version_SNMP": "SNMPv2",
+      "Credentials": "univ-1",
+      "Int": true,
+      "CPU": true
+    }
+  ]
+}

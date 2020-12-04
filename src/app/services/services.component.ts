@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserRepository } from '../repository/user';
 
 interface Hello {
@@ -14,13 +14,20 @@ interface Hello {
 })
 
 export class ServicesComponent {
-  name = 'Angular';
+  Name: '';
+  IP = '';
+  Marque = '';
+  VersionSNMP: '';
+  Credentials: '';
+  Int: '';
+  CPU: '';
+  reponsesnmp: '';
 
   hostForm: FormGroup;
   hostForm2: FormGroup;
   hello: Hello | null = null;
 
-  constructor(private fb: FormBuilder, private userRepo: UserRepository) {
+  constructor(private fb: FormBuilder, private userRepo: UserRepository, private httpClient: HttpClient) {
 
     this.hostForm = this.fb.group({
       Hosts: this.fb.array([]),
@@ -48,17 +55,15 @@ export class ServicesComponent {
     return this.hostForm.get("Hosts") as FormArray
   }
 
-
-
   newHost(): FormGroup {
     return this.fb.group({
-      Name: '',
-      IP: '',
-      Marque: '',
-      Version_SNMP: '',
-      Credentials: '',
-      Int: '',
-      CPU: '',
+      Name: this.Name,
+      IP: this.IP,
+      Marque: this.Marque,
+      Version_SNMP: this.VersionSNMP,
+      Credentials: this.Credentials,
+      Int: this.Int,
+      CPU: this.CPU,
     })
   }
 
