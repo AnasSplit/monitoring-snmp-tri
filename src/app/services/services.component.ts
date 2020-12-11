@@ -32,7 +32,7 @@ export class ServicesComponent {
   False = 'False';
 
   //Interface avec la bdd
-  Basedd: '';
+  Basedd = null;
   reponsesnmpcpu: '';
   reponsesnmpint: '';
 
