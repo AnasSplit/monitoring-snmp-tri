@@ -87,8 +87,7 @@ export class ServicesComponent {
   getMachine() {
     axios.get('https://snmp-server.herokuapp.com/showclients')
       .then(function (response) {
-        this.infos = response;
-        console.log(this.infos);
+        console.log(response);
         this.Basedd = response;
       })
   }
